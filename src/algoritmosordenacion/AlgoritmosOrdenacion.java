@@ -16,27 +16,32 @@ public class AlgoritmosOrdenacion {
     public void ordenacionBurbuja(int[] numeros) {
         int aux; //variable para hacer los intercambios
         boolean recolocar = true;
-        while(recolocar){
+        while (recolocar) {
             recolocar = false;
-            for (int i = 0; i < numeros.length-1; i++) {
+            for (int i = 0; i < numeros.length - 1; i++) {
                 if (numeros[i] > numeros[i + 1]) { //intercambio los valores
                     aux = numeros[i + 1];
                     numeros[i + 1] = numeros[i];
                     numeros[i] = aux;
                     recolocar = true;
-                    }
                 }
-          System.out.println(Arrays.toString(numeros));
+            }
+            System.out.println(Arrays.toString(numeros));
         }
     }
-
+    
+    public void ordenacionBurbuja2(int[] numeros) {
+        
+    }
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         AlgoritmosOrdenacion ejercicios = new AlgoritmosOrdenacion();
         int[] numeros = {57, 22, 11, 13, 21, 7};
-        ejercicios.ordenacionBurbuja(numeros); 
+        ejercicios.ordenacionBurbuja(numeros);
+        ejercicios.ordenacionBurbuja2(numeros);
         //Comprobar que pasa si lo metes en orden y hay que optimizarlo
         //Que no compruebe siempre el bucle interno todos los numeros
     }
