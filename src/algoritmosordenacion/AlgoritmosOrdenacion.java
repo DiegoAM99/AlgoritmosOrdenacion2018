@@ -30,9 +30,19 @@ public class AlgoritmosOrdenacion {
         }
     }
     
-    public void ordenacionBurbuja2(int[] numeros) {
-        
-    }
+    public void ordenacionInsercion(int[] numeros) {
+        for (int i = 1; i < numeros.length; i++) {
+            int aux = numeros[i];
+            int j = i;
+            while (j > 0 && numeros[j - 1] > aux) {
+                numeros[j] = numeros[j - 1];
+                j--;
+            }
+            numeros[j] = aux;
+            System.out.println(Arrays.toString(numeros));
+        }
+}
+    
     
     /**
      * @param args the command line arguments
@@ -40,8 +50,8 @@ public class AlgoritmosOrdenacion {
     public static void main(String[] args) {
         AlgoritmosOrdenacion ejercicios = new AlgoritmosOrdenacion();
         int[] numeros = {57, 22, 11, 13, 21, 7};
-        ejercicios.ordenacionBurbuja(numeros);
-        ejercicios.ordenacionBurbuja2(numeros);
+        //ejercicios.ordenacionBurbuja(numeros);
+        ejercicios.ordenacionInsercion(numeros);
         //Comprobar que pasa si lo metes en orden y hay que optimizarlo
         //Que no compruebe siempre el bucle interno todos los numeros
     }
