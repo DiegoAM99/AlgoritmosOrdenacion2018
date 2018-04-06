@@ -6,6 +6,7 @@
 package algoritmosordenacion;
 
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  *
@@ -26,7 +27,6 @@ public class AlgoritmosOrdenacion {
                     recolocar = true;
                 }
             }
-            System.out.println(Arrays.toString(numeros));
         }
     }
     
@@ -42,16 +42,34 @@ public class AlgoritmosOrdenacion {
             System.out.println(Arrays.toString(numeros));
         }
 }
-    
+ public int[] generaNumerosRandom(int dimension){
+     int [] numeros = new int[dimension];
+        Random r = new Random();
+        
+        for(int i=0;i<dimension; i++){
+            numeros[i] =r.nextInt();
+        }
+        
+        return numeros;
+ }
+ 
     
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         AlgoritmosOrdenacion ejercicios = new AlgoritmosOrdenacion();
-        int[] numeros = {57, 22, 11, 13, 21, 7};
+        //int[] numeros = {57, 22, 11, 13, 21, 7};
+        int[] numeros = ejercicios.generaNumerosRandom(1000);
         //ejercicios.ordenacionBurbuja(numeros);
-        ejercicios.ordenacionInsercion(numeros);
+        //ejercicios.ordenacionInsercion(numeros);
+        long tiempoInicio = System.currentTimeMillis();
+        
+        ejercicios.ordenacionBurbuja(numeros);
+        
+        long tiempoFinal = System.currentTimeMillis();
+        
+        System.out.println(tiempoFinal - tiempoInicio);
         //Comprobar que pasa si lo metes en orden y hay que optimizarlo
         //Que no compruebe siempre el bucle interno todos los numeros
     }
